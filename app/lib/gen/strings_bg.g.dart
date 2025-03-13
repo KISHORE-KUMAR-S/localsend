@@ -78,6 +78,8 @@ class TranslationsBg extends Translations {
   late final _TranslationsWebBg web = _TranslationsWebBg._(_root);
   @override
   late final _TranslationsAssetPickerBg assetPicker = _TranslationsAssetPickerBg._(_root);
+  @override
+  late final _TranslationsNetworkInterfacesPageBg networkInterfacesPage = _TranslationsNetworkInterfacesPageBg._(_root);
 }
 
 // Path: general
@@ -194,7 +196,7 @@ class _TranslationsSendTabBg extends TranslationsSendTabEn {
 
   // Translations
   @override
-  String get title => 'Изпрати';
+  String get title => 'Изпращане';
   @override
   late final _TranslationsSendTabSelectionBg selection = _TranslationsSendTabSelectionBg._(_root);
   @override
@@ -283,9 +285,9 @@ class _TranslationsReceiveHistoryPageBg extends TranslationsReceiveHistoryPageEn
   @override
   String get title => 'История';
   @override
-  String get openFolder => 'Отворете папка';
+  String get openFolder => 'Отвори папка';
   @override
-  String get deleteHistory => 'Изтриване на историята';
+  String get deleteHistory => 'Изтрий историята';
   @override
   String get empty => 'Историята е празна.';
   @override
@@ -701,11 +703,33 @@ class _TranslationsAssetPickerBg extends TranslationsAssetPickerEn {
   @override
   String get sActionSwitchPathLabel => 'промяна на пътя';
   @override
-  String get sActionUseCameraHint => 'използвайте камера';
+  String get sActionUseCameraHint => 'използвай камера';
   @override
   String get sNameDurationLabel => 'продължителност';
   @override
   String get sUnitAssetCountLabel => 'брой';
+}
+
+// Path: networkInterfacesPage
+class _TranslationsNetworkInterfacesPageBg extends TranslationsNetworkInterfacesPageEn {
+  _TranslationsNetworkInterfacesPageBg._(TranslationsBg root)
+      : this._root = root,
+        super.internal(root);
+
+  final TranslationsBg _root; // ignore: unused_field
+
+  // Translations
+  @override
+  String get preview => 'Преглед';
+  @override
+  String get whitelist => 'Бял списък';
+  @override
+  String get blacklist => 'Черен списък';
+  @override
+  String get title => 'Мрежови интерфейси';
+  @override
+  String get info =>
+      'По подразбиране, LocalSend използва всички налични мрежови интерфейси. Тук можете да изключите нежелани мрежи. Трябва да рестартирате сървъра, за да приложите промените.';
 }
 
 // Path: receiveTab.infoBox
@@ -827,13 +851,13 @@ class _TranslationsSettingsTabGeneralBg extends TranslationsSettingsTabGeneralEn
   @override
   String get saveWindowPlacementWindows => 'Запази позицията на прозореца след излизане';
   @override
-  String get minimizeToTray => 'Минимизиране до Системна област/Лента с менюта при затваряне';
+  String get minimizeToTray => 'Минимизирай в Системна област/Лента с менюта при затваряне';
   @override
   String get launchAtStartup => 'Автоматично стартиране след влизане';
   @override
   String get launchMinimized => 'Автоматично стартиране: Стартирай скрито';
   @override
-  String get showInContextMenu => 'Показване на LocalSend в контекстното меню';
+  String get showInContextMenu => 'Покажи LocalSend в контекстното меню';
   @override
   String get animations => 'Анимации';
 }
@@ -877,7 +901,7 @@ class _TranslationsSettingsTabSendBg extends TranslationsSettingsTabSendEn {
 
   // Translations
   @override
-  String get title => 'Изпрати';
+  String get title => 'Изпращане';
   @override
   String get shareViaLinkAutoAccept => 'Автоматично приемане на заявки в режим "Споделяне чрез връзка"';
 }
@@ -900,7 +924,7 @@ class _TranslationsSettingsTabNetworkBg extends TranslationsSettingsTabNetworkEn
   @override
   String get alias => 'Име на устройството';
   @override
-  String get deviceType => 'Тип устройството';
+  String get deviceType => 'Тип на устройството';
   @override
   String get deviceModel => 'Модел на устройството';
   @override
@@ -921,6 +945,10 @@ class _TranslationsSettingsTabNetworkBg extends TranslationsSettingsTabNetworkEn
   @override
   String multicastGroupWarning({required Object defaultMulticast}) =>
       'Възможно е да не бъдете открити от други устройства, защото използвате персонализиран адрес за множествено предаване. (default: ${defaultMulticast})';
+  @override
+  String get network => 'Мрежа';
+  @override
+  late final _TranslationsSettingsTabNetworkNetworkOptionsBg networkOptions = _TranslationsSettingsTabNetworkNetworkOptionsBg._(_root);
 }
 
 // Path: settingsTab.other
@@ -1005,13 +1033,13 @@ class _TranslationsReceiveHistoryPageEntryActionsBg extends TranslationsReceiveH
 
   // Translations
   @override
-  String get open => 'Отворете файл';
+  String get open => 'Отвори файл';
   @override
-  String get showInFolder => 'Показване в папка';
+  String get showInFolder => 'Покажи в папка';
   @override
   String get info => 'Информация';
   @override
-  String get deleteFromHistory => 'Изтриване от историята';
+  String get deleteFromHistory => 'Изтрий от историята';
 }
 
 // Path: progressPage.total
@@ -1058,7 +1086,7 @@ class _TranslationsDialogsOpenFileBg extends TranslationsDialogsOpenFileEn {
 
   // Translations
   @override
-  String get title => 'Отворете файл';
+  String get title => 'Отвори файл';
   @override
   String get content => 'Искате ли да отворите получения файл?';
 }
@@ -1277,7 +1305,7 @@ class _TranslationsDialogsMessageInputBg extends TranslationsDialogsMessageInput
 
   // Translations
   @override
-  String get title => 'Въведете съобщение';
+  String get title => 'Вид съобщение';
   @override
   String get multiline => 'Многоредов';
 }
@@ -1485,6 +1513,21 @@ class _TranslationsSettingsTabGeneralLanguageOptionsBg extends TranslationsSetti
   // Translations
   @override
   String get system => 'Система';
+}
+
+// Path: settingsTab.network.networkOptions
+class _TranslationsSettingsTabNetworkNetworkOptionsBg extends TranslationsSettingsTabNetworkNetworkOptionsEn {
+  _TranslationsSettingsTabNetworkNetworkOptionsBg._(TranslationsBg root)
+      : this._root = root,
+        super.internal(root);
+
+  final TranslationsBg _root; // ignore: unused_field
+
+  // Translations
+  @override
+  String get all => 'Всички';
+  @override
+  String get filtered => 'Филтриране';
 }
 
 // Path: progressPage.total.title
